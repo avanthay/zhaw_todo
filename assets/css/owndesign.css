@@ -3,18 +3,12 @@
  *
  */
 
-.footer {
+.free-buttons {
+    float: right;
 }
 
-.btn-group {
-}
 
-.formfields {
-}
-
-.validatebutton {
-}
-
-.taskList {
-    
+#validateButton,
+#extend-button {
+    float: initial !important;
 }
