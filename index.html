@@ -59,6 +59,8 @@
     <div class="container">
         <!-- inhalt der todo list -->
         <div>
+            <div id="top-of-page">
+            </div>
             <!-- formularfelder -->
             <div>
                 <form class="form-inline">
@@ -69,9 +71,9 @@
                             <button class="btn btn-success" type="button" id="button3">3</button>
                         </span>
                         <span>
-                            <input type="text" placeholder="date" class="formfields input-small" id="datepicker">
-                            <input type="text" placeholder="task" class="formfields input-xxlarge" id="taskName">
-                            <button type="button" class="close" id="validateButton">ok</button>
+                            <input type="text" placeholder="date" class="formfields" id="datepicker">
+                                <input type="text" placeholder="task" class="formfields" id="taskName">
+                                <button type="button" class="close" id="validateButton">ok</button>
                         </span>
                     </fieldset>
                 </form>
@@ -87,17 +89,17 @@
                     <div class="alert">
                         <ul class="inline free-buttons">
                             <li>
-                                <button type="button" class="close" id="done-button">
+                                <button type="button" class="close task-buttons" title="task done" id="done-button">
                                     <i class="icon-ok"></i>
                                 </button>
                             </li>
                             <li>
-                                <button type="button" class="close" id="edit-button">
+                                <button type="button" class="close task-buttons" title="edit task" id="edit-button">
                                     <i class="icon-pencil"></i>
                                 </button>
                             </li>
                             <li>
-                                <button type="button" class="close" id="del-button">
+                                <button type="button" class="close task-buttons" title="delete task" id="del-button">
                                     <i class="icon-remove"></i>
                                 </button>
                             </li>
@@ -124,7 +126,7 @@
                     <div class="alert ">
                         <ul class="inline free-buttons">
                             <li>
-                                <button type="button" class="close" id="reopen-button">
+                                <button type="button" class="close task-buttons" data-placement="left" title="re-open task" id="reopen-button">
                                     <i class="icon-share-alt"></i>
                                 </button>
                             </li>

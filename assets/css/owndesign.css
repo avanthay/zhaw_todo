@@ -12,3 +12,17 @@
 #extend-button {
     float: initial !important;
 }
+
+#btn-group {
+    width: 100px;
+}
+
+#datepicker {
+    width: 60px;
+}
+
+#taskName {
+    width: 40%;
+    min-width: 100px;
+    max-width: 600px;
+}
