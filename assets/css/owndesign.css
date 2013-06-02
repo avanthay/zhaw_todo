@@ -7,10 +7,9 @@
     float: right;
 }
 
-
 #validateButton,
 #extend-button {
-    float: initial !important;
+    float: none;
 }
 
 #btn-group {
@@ -25,4 +24,19 @@
     width: 40%;
     min-width: 100px;
     max-width: 600px;
+}
+
+.formfields{
+}
+
+hr{
+    margin-top: 0px;
+}
+
+.modal-header{
+    color: #C64A48;
+}
+
+.ok-button{
+    
 }
