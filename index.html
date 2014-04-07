@@ -10,7 +10,8 @@
         <!-- Le styles -->
         <style>
             body {
-                padding-top: 80px; /* 60px to make the container go all the way to the bottom of the topbar */
+                padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+                padding-bottom: 60px;
             }
         </style>
         <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -43,12 +44,12 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="brand" href="index.html" style="text-decoration: none">
-                        <img src="assets/ico/todo_icon.png" width="25" />
+                        <img src="assets/ico/todo_icon.png" width="25" alt="todo icon"/>
                         todo</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
                             <li class="active"><a href="index.html">Home</a></li>
-                            <li><a href="about.html" id="about">About</a></li>
+                            <li data-toggle="collapse" data-target=".nav-collapse" id="aboutButton"><a href="#">About</a href="#"></li>
                             <li><a href="contact.html">Contact</a></li>
                         </ul>
                     </div>
@@ -72,7 +73,7 @@
                                 <button class="btn btn-success" type="button" id="button3">3</button>
                             </span>
                             <span>
-                                <input type="text" placeholder="date" class="formfields" id="datepicker">
+                                <input type="text" placeholder="date" class="formfields hidden-phone" id="datepicker">
                                 <input type="text" placeholder="task" class="formfields" id="taskName">
                                 <button type="button" class="close" id="validateButton">ok</button>
                             </span>
@@ -81,63 +82,27 @@
                 </div>
                 <div>
                     <!-- aktive liste -->
-                    <h4>open</h4><hr />
+                    <div id="taskListTitle" style="display: none">
+                        <h4>open</h4>
+                        <hr />
+                    </div>
                     <div id="taskList">
-
                         <!--dynamischer part...: -->
-                        <div class="alert alert-danger">
-                            <ul class="inline free-buttons">
-                                <li>
-                                    <button type="button" class="close" title="task done" id="done-button">
-                                        <i class="icon-ok"></i>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button type="button" class="close" title="edit task" id="edit-button">
-                                        <i class="icon-pencil"></i>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button type="button" class="close" title="delete task" id="del-button">
-                                        <i class="icon-remove"></i>
-                                    </button>
-                                </li>
-                            </ul>
-                            <ul class="inline">
-                                <li>prio</li>
-                                <li>date</li>
-                                <li>task name</li>
-                            </ul>
 
-                        </div>
 
                     </div>
                     <!-- erledigte Tasks -->
-                    <div>
+                    <div id="doneListTitle" style="display: none">
                         <h4>done
-                            <button type="button" class="close" data-toggle="collapse" href="#doneList" title="hide <> show tasks" id="extend-button">
-                                <i class="icon-eye-close" id="eye-icon"></i>
+                            <button type="button" class="close" data-toggle="collapse" href="#doneList" id="extend-button">
+                                <i class="icon-eye-open" id="eye-icon"></i>
                             </button>
                         </h4>
                         <hr />
                     </div>
-                    <div class="collapse in" id="doneList">
+                    <div class="collapse" id="doneList">
                         <!--dynamischer part-->
-                        <div class="alert ">
-                            <ul class="inline free-buttons">
-                                <li>
-                                    <button type="button" class="close" data-placement="left" title="re-open task" id="reopen-button">
-                                        <i class="icon-share-alt"></i>
-                                    </button>
-                                </li>
-                            </ul>
-                            <ul class="inline">
-                                <li>prio</li>
-                                <li>date</li>
-                                <li>task name 2</li>
-                            </ul>
 
-                        </div>
 
                     </div>
                 </div>
@@ -155,23 +120,25 @@
         <!-- /container -->
 
         <!--modal - errormessage-->
-        <div class="modal hide fade" id="errorMissingName">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h3>Error</h3>
-            </div>
-            <div class="modal-body">
-                <p>Please enter a task!</p>
-            </div>
-            <div class="modal-footer">
-                <a class="btn btn-primary ok-button" data-dismiss="modal">ok</a>
-            </div>
+        <div id="errorMessage">
+            <div class="modal hide fade" id="errorBox">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 id="errorTitle">Error</h3>
+                </div>
+                <div class="modal-body">
+                    <p id="errorText"></p>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-primary ok-button" data-dismiss="modal" id="errorBoxOkButton">ok</a>
+                </div>
+            </div> 
         </div>
 
         <!--footer-->
         <footer>
             <div class="container" id="footer">
-                <p class="modal-footer">&copy; by dave</p>
+                <p class="modal-footer">created by dave</p>
             </div>
         </footer>
 
@@ -187,7 +154,7 @@
             <script src="assets/js/bootstrap-dropdown.js"></script>
             <script src="assets/js/bootstrap-scrollspy.js"></script>
             <script src="assets/js/bootstrap-tab.js"></script>
-            <script src="assets/js/bootstrap-tooltip.js"></script>
+            <script src="assets/js/bootstrap-tooltip.js"></script>            
             <script src="assets/js/bootstrap-popover.js"></script>
             <script src="assets/js/bootstrap-button.js"></script>
             <script src="assets/js/bootstrap-collapse.js"></script>
@@ -195,7 +162,6 @@
             <script src="assets/js/bootstrap-typeahead.js"></script>
             <script src="assets/js/ownscript.js"></script>
             <script src="assets/js/jquery/jquery-ui-1.10.3.custom.js"></script>
-            <script src="assets/js/jquery/jquery-ui-1.10.3.custom.min.js"></script>
         </div>
     </body>
 
